@@ -1,0 +1,202 @@
+// --- Import
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900');
+
+// --- Variables
+$font-family: 'Work Sans', sans-serif;
+$color__light: #fff;
+$color__dark: #212b35;
+$color__medium: #637381;
+$container__width: 90%;
+$gradient: linear-gradient(135deg, rgba(52,179,247,.8) 0%, rgba(160,39,230,.9) 100%);
+$transition: all .3s ease-in-out;
+
+// --- Mixins
+@mixin shadow($x, $y, $blur, $color) {
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin btn {
+    border: none;
+    background-color: #5c6ac4;
+    padding: 15px 30px;
+    color: $color__light;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $transition;
+    @include shadow(0, 0, 10px, rgba(93,109,126,1));
+    
+    &:hover {
+        background-color: #2d387e;
+        @include shadow(0, 0, 3px, rgba(93,109,126,1));
+    }
+    
+    @media screen and (max-width: 767px) {
+        margin-top: 15px;
+    }
+}
+
+
+// --- Generals
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-family;
+    background-color: #f2f3f4;
+}
+
+.container {
+    width: $container__width;
+    margin: auto;
+    
+    @media screen and (min-width: 1024px) {
+        width: 1000px;
+        margin: auto; 
+    }
+}
+
+.image-responsive {
+    max-width: 100%;
+    width: 100%;
+}
+
+// --- Hero
+.hero {
+    background-image: url('../images/bg-reconversion.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    
+    @media screen and (max-width: 767px) {
+        background-attachment: scroll;
+    }
+    
+    .hero__filter {
+        background: $gradient;
+        
+        .container {
+            padding: 100px 0;
+            
+            @media screen and (max-width: 767px) {
+                padding: 50px 0;
+            }
+
+            .hero__title {
+                text-align: center;
+                color: $color__light;
+                font-weight: 600;
+                font-size: 3em;
+                
+                @media screen and (max-width: 767px) {
+                    font-size: 2em;
+                    line-height: 1em;
+                }
+            }
+        }    
+    }
+}
+
+// --- Content
+.content {
+    padding: 70px 0;
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .container--image {
+            width: 35%;
+            
+            @media screen and (max-width: 767px) {
+                width: 100%;
+                margin-bottom: 25px;
+            }
+        }
+        
+        .container--text {
+            width: 60%;
+            display: flex;
+            align-items: center;        
+            
+            @media screen and (max-width: 767px) {
+                width: 100%;
+            }
+            
+            .content__title {
+                color: $color__dark;
+                font-weight: 500;
+                font-size: 1.6em;
+                
+                span {
+                    color: #5c6ac4;
+                    font-size: 1em;
+                    font-weight: 400;
+                }
+                
+                @media screen and (max-width: 767px) {
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 1.2em;
+                }
+            }
+        }
+        
+        .container--form {
+            padding: 35px 0;
+            width: 100%;
+            text-align: center;
+            
+            .input {
+                padding-left: 15px;
+                height: 46px;
+                font-size: 1.3em;
+                color: $color__medium;
+                background-color: $color__light;
+                border-radius: 5px;
+                border: 2px solid #d8d8d8;
+                
+                &:hover {
+                    @include shadow(0, 0, 3px, rgba(93,109,126,.3));
+                }                
+                
+                @media screen and (max-width: 767px) {
+                    font-size: 1.1em;
+                }
+            }
+            
+            .btn {
+               @include btn; 
+            }
+            
+            .container--response {
+                margin-top: 45px;
+                                
+                span {
+                    display: none;
+                    padding: 25px;
+                    background-color: $color__light;
+                    color: $color__dark;
+                    font-weight: 600;
+                    font-size: 2em;
+                    @include shadow(0, 0, 15px, rgba(93,109,126,.3));
+                }
+            }
+        }
+    }
+}
+
+// --- Footer
+.footer {
+    background-color: #283747;
+    
+    .container {
+        padding: 25px 0;
+        text-align: center;
+        color: #d7dbdd;
+    }
+}
